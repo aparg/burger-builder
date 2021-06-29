@@ -16,3 +16,9 @@
     color: rgb(221, 221, 221);
     
 }
+
+@media (max-width:500px){
+    .Navbar{
+        display:none;
+    }
+}

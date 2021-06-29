@@ -17,7 +17,6 @@ const NavigationContainer = (props) => {
         }
         }, [props])
 
-
     return(
         <div className={NavigationContainerStyle.main}>
 
