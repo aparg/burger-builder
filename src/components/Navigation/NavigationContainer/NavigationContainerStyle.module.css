@@ -1,0 +1,11 @@
+.main{
+    display:flex;
+    flex-direction: row;
+}
+
+.image{
+    height:2vh;
+    width:3.5vh;
+    margin:0 2%;
+    cursor:pointer;
+}

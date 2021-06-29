@@ -36,13 +36,15 @@
     background-color: #a1a59f;
 }
 
-@media(max-width:463px){
+@media(max-width:575px){
     .btn{
         padding:5%;
         font-size: 1em
     }
 
     .val{
-        width:30%
+        width:30%;
+        font-size:15px;
+        font-weight:bold;
     }
 }

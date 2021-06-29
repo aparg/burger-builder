@@ -1,0 +1,14 @@
+.main{
+    height:2vh;
+    width:3.5vh;
+    margin:2vh 0vh 2%;
+    cursor:pointer;
+    display:none;
+}
+
+@media (max-width:500px){
+    .main{
+        display:inline;
+        /* position: relative; */
+    }
+}

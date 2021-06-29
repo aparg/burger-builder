@@ -11,10 +11,3 @@
     background-color: rgb(26, 23, 23);
     overflow:hidden;
 }
-
-img{
-    height:5vh;
-    width:8vh;
-    margin:0 2%;
-    cursor:pointer;
-}
