@@ -14,9 +14,11 @@ let jsonParser=bodyParser.json()
 app.post('/orders',jsonParser,(req,res)=>{
     console.log("posting")
     console.log(req.body)
-    connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.bacon},${req.body.salad},${req.body.meat});`,(error)=>{
+    connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.bacon},${req.body.salad},${req.body.meat});`,
+    (error,res)=>{
         if(error)throw error;
-        console.log(error)})
+        console.log(res)
+    })
 })
 
 app.listen(4000,()=>{

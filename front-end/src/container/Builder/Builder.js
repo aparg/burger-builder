@@ -5,7 +5,7 @@ import BuildControls from '../../components/BuildControls/BuildControls'
 import PurchasingContext from '../../components/contexts/PurchasingContext'
 import OrderSummary from '../../components/OrderSummary/OrderSummary'
 import Modal from '../Modal/Modal'
-import axios from 'axios'
+import axios from '../../axios_orders'
 
 
 class Builder extends Component{
@@ -28,8 +28,6 @@ class Builder extends Component{
     }
 
     
-    addDelIngContext = React.createContext({add:null,remove:null})
-    provideAddDel = this.addDelIngContext.Provider
 
     addIngredients = (ingredient)=>{
         let copiedIngredients={...this.state.ingredients}
@@ -64,7 +62,7 @@ class Builder extends Component{
     }
 
     orderHandler = ()=>{
-        axios.post('/orders',this.state.ingredients)
+        axios.post('/',this.state.ingredients)
     }
 
     render(){

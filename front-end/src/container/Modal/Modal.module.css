@@ -16,11 +16,11 @@
     font-family: 'Noto Sans JP', sans-serif;
     list-style: none;
     z-index:200;
-    width:97%;
+    width:50%;
     position:fixed;
     top:30vh;
     right:1%;
-    left:1%;
+    left:25%;
     vertical-align: middle;
     /* box-shadow: 5px 5px 5px rgb(83, 83, 83); */
 }

@@ -13,19 +13,19 @@ const OrderSummary = (props) => {
         )
     })
 
-    data.splice(0,0,<div className={OrderSummaryStyle.data} key={'titles'}>
-        <div className={OrderSummaryStyle.item}><strong>Ingredients</strong></div>
-        <div className={OrderSummaryStyle.quantity}><strong>Quantity</strong></div>
+    data.splice(0,0,
+        <div className={OrderSummaryStyle.data} key={'titles'}>
+        <div className={OrderSummaryStyle.titleItem}><strong>Ingredients</strong></div>
+        <div className={OrderSummaryStyle.titleQuantity}><strong>Quantity</strong></div>
     </div>)
 
-    data.push("Total : "+props.total)
     return(
         <Aux cl={OrderSummaryStyle.main}>
             <strong className={OrderSummaryStyle.title}>Order Summary</strong>
             <ul className={OrderSummaryStyle.listStyle}>
                 {data}
             </ul>
-            <button onClick={props.purchase}>Order!</button> 
+            <button onClick={props.purchase} className={OrderSummaryStyle.order}>Purchase</button> 
         </Aux>    
     )
 }
