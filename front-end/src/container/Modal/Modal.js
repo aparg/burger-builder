@@ -5,12 +5,12 @@ import Aux from '../../hoc/Auxillary'
 
 const Modal = (props) => {
     let classes=[ModalStyle.disappear]
-    if(props.purchased){
+    if(props.show){
         classes.splice(0,1)
         classes.push(ModalStyle.appear)}
     return(
         <Aux>
-            <Backdrop show={props.purchased} back={props.back}/>
+            <Backdrop show={props.show} back={props.back}/>
             <div className={classes.join(' ')}>
                 {props.children}
             </div>
