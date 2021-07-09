@@ -6,7 +6,7 @@ const connection = mysql.createConnection({
     host:'localhost',
     user:'root',
     password:'linux9840215103',
-    database:'burger_orders'
+    database:'burger'
 })
 
 let jsonParser=bodyParser.json()
@@ -19,6 +19,20 @@ app.post('/orders',jsonParser,(req,res)=>{
         if(error)throw error;
         console.log(res)
     })
+})
+
+app.get('/ingredients',(req,res)=>{
+    let returnObject={}
+    connection.query(`SELECT * FROM ingredients;`,(error,response)=>{
+        if(error)throw error;
+        response.forEach(el=>{
+            returnObject[el.ingredient]=el.amount
+        })
+        console.log(returnObject)
+        res.send(returnObject) 
+    })
+    
+       
 })
 
 app.listen(4000,()=>{
