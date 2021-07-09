@@ -27,8 +27,8 @@ const burgerIngredient = (props) => {
             ingredient=<div className={BurgerStyle.Cheese}></div>
             break
         case('salad'):
-        ingredient=<div className={BurgerStyle.Salad}></div>
-        break
+            ingredient=<div className={BurgerStyle.Salad}></div>
+            break
         default:
             ingredient=null
     }
