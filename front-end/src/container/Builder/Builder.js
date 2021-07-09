@@ -1,23 +1,21 @@
 import React, {Component} from 'react'
 import Burger from '../../components/Burger/Burger'
-import Auxillary from '../../hoc/Auxillary'
+import Aux from '../../hoc/Auxillary'
 import BuildControls from '../../components/BuildControls/BuildControls'
 import PurchasingContext from '../../components/contexts/PurchasingContext'
 import OrderSummary from '../../components/OrderSummary/OrderSummary'
 import Modal from '../Modal/Modal'
 import axios from '../../axios_orders'
+import Spinner from '../../components/Spinner/Spinner'
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 
 
 class Builder extends Component{
     state={
-        ingredients:{
-                    'cheese':0,
-                    'meat':0,
-                    'bacon':0,
-                    'salad':0,
-                    },
+        ingredients:null,
         totalCost:20,
-        purchased:false
+        purchased:false,
+        loading:false
     }
 
     price={
@@ -62,31 +60,44 @@ class Builder extends Component{
     }
 
     orderHandler = ()=>{
-        axios.post('/',this.state.ingredients)
+        this.setState({loading:true})
+        axios.post('/orders',this.state.ingredients).then(
+            this.setState({loading:false,purchased:false})
+        )
+    }
+
+    ingredientDependents=<Spinner/>
+
+    componentDidMount(){
+        axios.get('/ingredients').then(
+            res=>{
+                this.setState({ingredients:res.data})
+            }
+        )
     }
 
     render(){
-    
-    return(
-        <Auxillary>
+        if(this.state.ingredients){
+            this.ingredientDependents=<Aux>
+                    <Burger ingredients={this.state.ingredients}/>
+                    <PurchasingContext.Provider value={{purchaseHandler:this.purchaseHandler}}>
+                        <BuildControls 
+                        ingredients={this.state.ingredients} 
+                        addIng={this.addIngredients} 
+                        removeIng={this.removeIngredients}
+                        totalCost={this.state.totalCost}/>
+                    </PurchasingContext.Provider>
+                    <Modal show={this.state.purchased} back={this.backFromPurchasingState}>
+                        <OrderSummary ingredients={this.state.ingredients} total={this.state.totalCost} purchase={this.orderHandler} loading={this.state.loading}/>
+                    </Modal>
+                </Aux>
+        }
+        return(
+            <Aux>
+                {this.ingredientDependents}
+            </Aux>
+        )}
+    }
 
-            <Burger ingredients={this.state.ingredients}/>
-
-            <PurchasingContext.Provider value={{purchaseHandler:this.purchaseHandler}}>
-                <BuildControls 
-                ingredients={this.state.ingredients} 
-                addIng={this.addIngredients} 
-                removeIng={this.removeIngredients}
-                totalCost={this.state.totalCost}/>
-            </PurchasingContext.Provider>
-            <Modal purchased={this.state.purchased} back={this.backFromPurchasingState}>
-                <OrderSummary ingredients={this.state.ingredients} total={this.state.totalCost} purchase={this.orderHandler}/>
-            </Modal>
-            
-        </Auxillary>
-    )}
-
-}
-
-export default Builder
+export default withErrorHandler(Builder,axios)
 
