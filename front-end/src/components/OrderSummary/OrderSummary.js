@@ -1,6 +1,7 @@
 import React from 'react'
 import OrderSummaryStyle from './OrderSummary.module.css'
 import Aux from '../../hoc/Auxillary'
+import Spinner from '../Spinner/Spinner'
 
 const OrderSummary = (props) => {
     let data=Object.keys(props.ingredients).map(ing => {
@@ -20,7 +21,9 @@ const OrderSummary = (props) => {
     </div>)
 
     return(
+        props.loading?<Spinner/>:
         <Aux cl={OrderSummaryStyle.main}>
+            
             <strong className={OrderSummaryStyle.title}>Order Summary</strong>
             <ul className={OrderSummaryStyle.listStyle}>
                 {data}
