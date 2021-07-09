@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const order = axios.create({
-    baseURL:"/orders"
+    baseURL:"/"
 })
 
 export default order
