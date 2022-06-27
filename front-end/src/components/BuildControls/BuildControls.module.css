@@ -1,0 +1,17 @@
+.main{
+    /* margin: 2% 0px; */
+    margin: 0 auto;
+    border:none;
+    border-radius: 10px;
+    width:50%
+}
+
+.main .costDisplayer{
+    margin : 5px 0;
+    padding : 2% 1%;
+    background-color: rgb(201, 197, 192);
+}
+
+.main .active{
+    background-color: rgb(166, 192, 125);
+}

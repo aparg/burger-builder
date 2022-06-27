@@ -1,0 +1,24 @@
+.Navbar{
+    margin:10% 3%;
+    font-size:2.5vh;
+    color: rgb(221, 221, 221);
+}
+
+.main:hover{
+    color:rgb(255, 255, 255);
+    cursor: pointer;
+    /* height:7vh */
+}
+
+.SideDrawer{
+    margin:20% 3%;
+    font-size:1.75vh;
+    color: rgb(221, 221, 221);
+    
+}
+
+@media (max-width:500px){
+    .Navbar{
+        display:none;
+    }
+}

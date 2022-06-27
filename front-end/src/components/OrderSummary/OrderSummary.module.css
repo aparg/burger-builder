@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+.main{
+    position:absolute;
+    width:100%;
+    top:50%;
+    left:50%;
+    height:100%;
+    transform: translate(-50%,-50%);
+    /* padding: 2em 2em 0px 0px; */
+    padding:0.5vh 0;
+    height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title{
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size:1.5em;
+    text-align:center;
+    padding-bottom:1em;
+}
+
+.data{
+    display:flex;
+    justify-content: space-around;
+    padding:0.1% 0;
+    font-size:0.75em;
+    margin:0 2%;
+}
+
+.data .item{
+    text-transform: capitalize;
+    flex:3;
+    font-size:0.75em;
+    
+}
+
+.data .titleItem{
+    text-transform: capitalize;
+    flex:3;
+    background-color: rgb(170, 212, 170);
+    font-size:0.75em;
+    
+}
+
+
+
+.data .quantity{
+    flex:1;
+    align-items:center;
+}
+
+
+.data .titleQuantity{
+    flex:1;
+    background-color:rgb(73, 197, 73);
+    align-items:center;
+}
+
+.listStyle{
+    list-style:none;
+    /* text-align:center; */
+    font-size:1.5em;
+    padding:0;
+    margin:0 0 2% 0;
+    position:relative;
+    width:100%
+}
+
+.order{
+    border: none;
+    outline: none;
+    border-radius: 2px;
+    background-color: rgb(143, 189, 241);
+    padding: 2% 3%;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+}
