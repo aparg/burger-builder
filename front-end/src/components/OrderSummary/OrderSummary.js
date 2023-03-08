@@ -34,7 +34,7 @@ const OrderSummary = (props) => {
             <ul className={OrderSummaryStyle.listStyle}>
                 {data}
             </ul>
-            <Link to={{pathname:"/checkout",search:query}}><button className={OrderSummaryStyle.order}>Purchase</button></Link>
+            <button className={OrderSummaryStyle.order} onClick={props.purchase}>Purchase</button>
         </Aux>    
     )
 }
