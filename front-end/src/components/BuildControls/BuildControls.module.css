@@ -15,15 +15,3 @@
 .main .active{
     background-color: rgb(166, 192, 125);
 }
-
-.main .orderBtn{
-    border: none;
-    outline: none;
-    border-radius: 2px;
-    background-color: rgb(143, 189, 241);
-    padding: 2% 3%;
-    cursor: pointer;
-    font-size: 1em;
-    font-weight: bold;
-    box-shadow: inset 1px #50C834
-}

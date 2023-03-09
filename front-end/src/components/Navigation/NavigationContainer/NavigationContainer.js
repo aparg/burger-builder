@@ -5,26 +5,32 @@ import Navbar from '../Navbar/Navbar'
 import SideDrawer from '../SideDrawer/SideDrawer'
 
 const NavigationContainer = (props) => {
-
-
-    useEffect(() => {
+    const ReEvaluate=()=>{
+        if(props.sideDrawer===true && window.innerWidth>500)props.setNavbar()
+    }
+    useEffect(()=>{
+        console.log("added eventlistener") 
         window.addEventListener('resize',ReEvaluate)
-        function ReEvaluate(){
-            if(props.sideDrawer===true && window.innerWidth>500)props.setNavbar()
-        }
         return () => {
             window.removeEventListener('resize',ReEvaluate)
         }
-        }, [props])
+    },[])
+    
+    // //eslint-disable-next-line
+    // useEffect(() => {
+
+    //     // Re-evaluate the screen-size when the screen is resized
+    
+    //         if(props.sideDrawer===true && window.innerWidth>500)props.setNavbar()
+    //     },[props.sideDrawer])
 
     return(
         <div className={NavigationContainerStyle.main}>
-
             {/* Render navbar or sidedrawer according to the screen size  */}
             {
                 props.sideDrawer?
-                <SideDrawer elements={Object.keys(props.elements)} switched={props.switched}/>:
-                <Navbar elements={Object.keys(props.elements)} switched={props.switched}/>
+                <SideDrawer elements={props.elements} switched={props.switched}/>:
+                <Navbar elements={props.elements} switched={props.switched}/>
             }
         </div>
     )

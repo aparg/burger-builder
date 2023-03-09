@@ -1,12 +1,13 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import NavigationElementsStyle from './NavigationElements.module.css'
-const NavEl = (props) => {
+const NavigationElement = (props) => {
     let classes=[NavigationElementsStyle.main]
     classes.push(NavigationElementsStyle[props.type])
     console.log(classes)
-    return(<span className={classes.join(' ')}>
-            {props.element}
-        </span>)
+    return(<Link className={classes.join(' ')} to={props.route}>
+            {props.label}
+        </Link>)
 }
 
-export default NavEl
+export default NavigationElement

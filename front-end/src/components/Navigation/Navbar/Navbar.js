@@ -11,8 +11,8 @@ const Navbar = (props) => {
         <div className={NavbarStyle.nav}>
             <Toggle onClick={props.switched}/>
             <Logo/>
-            {props.elements.map(el=>{
-                return <NavigationElement element={el} key={el} type="Navbar"/>
+            {Object.keys(props.elements).map(el=>{
+                    return <NavigationElement label={el} route={props.elements[el]} key={el} type="Navbar"/>
             })}
             {console.log(window.innerWidth)}
         </div>

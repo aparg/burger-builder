@@ -8,6 +8,7 @@ import Modal from '../Modal/Modal'
 import axios from '../../axios_orders'
 import Spinner from '../../components/Spinner/Spinner'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
+// import order from '../../axios_orders'
 
 
 class Builder extends Component{
@@ -61,6 +62,7 @@ class Builder extends Component{
 
     orderHandler = ()=>{
         this.setState({loading:true})
+        console.log(this.state.ingredients)
         axios.post('/orders',this.state.ingredients).then(
             this.setState({loading:false,purchased:false})
         )
@@ -69,8 +71,10 @@ class Builder extends Component{
     ingredientDependents=<Spinner/>
 
     componentDidMount(){
+        console.log("H")
         axios.get('/ingredients').then(
             res=>{
+                console.log("Got ingredients")
                 this.setState({ingredients:res.data})
             }
         )

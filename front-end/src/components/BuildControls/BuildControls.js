@@ -2,6 +2,7 @@ import React,{ useContext } from 'react'
 import BuildControl from './BuildControl'
 import BuildControlsStyle from './BuildControls.module.css'
 import PurchasingContext from '../contexts/PurchasingContext'
+import Button from '../Button/Button'
 
 
 const BuildControls = (props) => {
@@ -30,7 +31,7 @@ const BuildControls = (props) => {
             })}
 
             <div className={costDisplayer.join(' ')}><strong>Total Cost : </strong>{props.totalCost}</div>
-            <button className={BuildControlsStyle.orderBtn} onClick={context.purchaseHandler}>Order!</button>
+            <Button clicked={context.purchaseHandler} label="Order!"/>
         </div>
     )
 }

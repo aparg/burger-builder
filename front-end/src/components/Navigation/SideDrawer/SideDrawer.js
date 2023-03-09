@@ -12,11 +12,10 @@ const SideDrawer = (props) => {
         <Aux>
             <Backdrop show={true} back={props.switched}/>
             <div className={SideDrawerStyle.main}>
-                
                 <Toggle onClick={props.switched}/>
                 <Logo size={{height:'5%',width:'90%'}}/>
-                {props.elements.map(el=>{
-                    return <NavigationElement element={el} key={el} type="SideDrawer"/>
+                {Object.keys(props.elements).map(el=>{
+                    return <NavigationElement label={el} route={props.elements[el]} key={el} type="SideDrawer"/>
                 })}
             </div>
         </Aux>
