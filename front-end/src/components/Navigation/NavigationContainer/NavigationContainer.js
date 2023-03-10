@@ -5,24 +5,17 @@ import Navbar from '../Navbar/Navbar'
 import SideDrawer from '../SideDrawer/SideDrawer'
 
 const NavigationContainer = (props) => {
-    const ReEvaluate=()=>{
-        if(props.sideDrawer===true && window.innerWidth>500)props.setNavbar()
-    }
+    
     useEffect(()=>{
+        const ReEvaluate=()=>{
+            if(props.sideDrawer===true && window.innerWidth>500)props.setNavbar()
+        }
         console.log("added eventlistener") 
         window.addEventListener('resize',ReEvaluate)
         return () => {
             window.removeEventListener('resize',ReEvaluate)
         }
-    },[])
-    
-    // //eslint-disable-next-line
-    // useEffect(() => {
-
-    //     // Re-evaluate the screen-size when the screen is resized
-    
-    //         if(props.sideDrawer===true && window.innerWidth>500)props.setNavbar()
-    //     },[props.sideDrawer])
+    },[props])
 
     return(
         <div className={NavigationContainerStyle.main}>
@@ -34,8 +27,6 @@ const NavigationContainer = (props) => {
             }
         </div>
     )
-
-
 }
 
 export default NavigationContainer
