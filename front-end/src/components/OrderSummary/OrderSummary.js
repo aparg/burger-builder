@@ -2,7 +2,7 @@ import React from 'react'
 import OrderSummaryStyle from './OrderSummary.module.css'
 import Aux from '../../hoc/Auxillary'
 import Spinner from '../Spinner/Spinner'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
 const OrderSummary = (props) => {
     let queryArr = []
@@ -16,7 +16,7 @@ const OrderSummary = (props) => {
         )
     })
 
-    let query = queryArr.join("&")
+    // let query = queryArr.join("&")
 
     data.splice(0,0,
         <div className={OrderSummaryStyle.data} key={'titles'}>
