@@ -18,7 +18,7 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/orders',jsonParser,(req,res)=>{
-    connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.bacon},${req.body.salad},${req.body.meat});`,
+    connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese}${req.body.meat},,${req.body.bacon},${req.body.salad});`,
     (error,res)=>{
         if(error)throw error
     })
