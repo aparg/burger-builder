@@ -3,6 +3,17 @@
       {
         "source": "/:path*",
         "destination": "https://burger-builder-livid.vercel.app/:path*"
+      },
+      {
+        "source": "/:path*",
+        "has": [
+            {
+              "type": "header",
+              "key": ":method",
+              "value": "POST"
+            }
+          ],
+        "destination": "https://burger-builder-livid.vercel.app/:path*"
       }
     ]
   }
