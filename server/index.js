@@ -19,8 +19,6 @@ app.get('/',(req,res)=>{
 
 app.post('/orders',jsonParser,(req,res)=>{
     console.log("posting")
-    console.log(req.body)
-    console.log(Date.now())
     connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.bacon},${req.body.salad},${req.body.meat});`,
     (error,res)=>{
         if(error)throw error;
@@ -30,7 +28,6 @@ app.post('/orders',jsonParser,(req,res)=>{
 
 app.get('/ingredients',(req,res)=>{
     let returnObject={}
-    console.log("ing..")
     connection.query(`SELECT * FROM ingredients;`,(error,response)=>{
         if(error) throw error
         response.forEach(el=>{

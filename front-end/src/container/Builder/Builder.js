@@ -8,7 +8,6 @@ import Modal from '../Modal/Modal'
 import axios from '../../axios_orders'
 import Spinner from '../../components/Spinner/Spinner'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
-// import order from '../../axios_orders'
 
 
 class Builder extends Component{
@@ -38,7 +37,6 @@ class Builder extends Component{
 
     removeIngredients = (ingredient)=>{
         if(this.state.ingredients[ingredient]>0){
-            console.log('run')
             let copiedIngredients={...this.state.ingredients}
             copiedIngredients[ingredient]=this.state.ingredients[ingredient]-1
             this.setState({ingredients:copiedIngredients})
@@ -71,7 +69,6 @@ class Builder extends Component{
     ingredientDependents=<Spinner/>
 
     componentDidMount(){
-        console.log("H")
         axios.get('/ingredients').then(
             res=>{
                 console.log("Got ingredients")

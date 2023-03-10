@@ -7,7 +7,6 @@ import { Link } from 'react-router-dom'
 const OrderSummary = (props) => {
     let queryArr = []
     let data=Object.keys(props.ingredients).map(ing => {
-        // return <li key={ing}><span style={{'textTransform':'capitalize','text-align':'left','padding':'0'}}>{ing} : {props.ingredients[ing]}</span></li>
         queryArr.push(ing+'='+props.ingredients[ing])
         return(
             <div className={OrderSummaryStyle.data} key={ing}>
@@ -18,7 +17,6 @@ const OrderSummary = (props) => {
     })
 
     let query = queryArr.join("&")
-    console.log(query)
 
     data.splice(0,0,
         <div className={OrderSummaryStyle.data} key={'titles'}>
