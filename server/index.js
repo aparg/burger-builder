@@ -32,6 +32,7 @@ app.get('/ingredients',(req,res)=>{
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
         })
+        
         res.send(returnObject) 
     })       
 })
