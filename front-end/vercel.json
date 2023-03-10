@@ -1,0 +1,8 @@
+{
+    "rewrites": [
+      {
+        "source": "/:path*",
+        "destination": "https://https://burger-builder-livid.vercel.app/:path*"
+      }
+    ]
+  }
