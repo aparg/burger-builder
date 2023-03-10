@@ -18,13 +18,10 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/orders',jsonParser,(req,res)=>{
-    console.log("posting")
     connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.bacon},${req.body.salad},${req.body.meat});`,
     (error,res)=>{
         if(error)throw error
-        console.log(res)
     })
-    res.status(200)
 })
 
 app.get('/ingredients',(req,res)=>{
