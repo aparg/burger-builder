@@ -3,13 +3,7 @@ const app = express()
 const mysql = require('mysql')
 const bodyParser = require('body-parser')
 require('dotenv').config()
-// const connection = mysql.createConnection({
-//     host:'sql12.freesqldatabase.com',
-//     user:'sql12603908',
-//     password:'4rdA3MwtUH',
-//     database:'sql12603908',
-//     port:'3306'
-// })
+
 const connection = mysql.createConnection({
     host:process.env.HOST,
     user:process.env.DATABASE_NAME,
