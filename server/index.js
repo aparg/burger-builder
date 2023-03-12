@@ -29,7 +29,7 @@ app.post('/orders',jsonParser,(req,res)=>{
 
 app.get('/ingredients',(req,res)=>{
     let returnObject={}
-    connection.query(`SELECT * FROM ingredients;`,(error,response)=>{
+    connection.query(`SELECT * FROM ingredients ORDER BY ingredient_no;`,(error,response)=>{
         if(error) throw error
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
