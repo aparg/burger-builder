@@ -62,7 +62,10 @@ class Builder extends Component{
         this.setState({loading:true})
         console.log(this.state.ingredients)
         axios.post('/orders',this.state.ingredients).then(
-            this.setState({loading:false,purchased:false})
+            ()=>{
+                this.setState({loading:false,purchased:false})
+                console.log("ORDER RECORDED")
+            }
         )
     }
 

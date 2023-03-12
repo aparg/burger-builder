@@ -37,7 +37,7 @@ app.get('/ingredients',(req,res)=>{
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
         })
-        res.send(returnObject) 
+        res.status(200).send(returnObject) 
     })      
     connection.end() 
 })
@@ -57,7 +57,7 @@ app.get('/display',(req,res)=>{
             ordersArray.push({...newObject})
         }
         )
-    res.send(ordersArray)        
+    res.status(200).send(ordersArray)        
     })
     connection.end()
 })
