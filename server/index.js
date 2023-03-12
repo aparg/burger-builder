@@ -23,7 +23,7 @@ app.get('/',(req,res)=>{
 app.post('/orders',jsonParser,(req,res)=>{
     connection.connect()
     connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.meat},${req.body.bacon},${req.body.salad});`,
-    (error,res)=>{
+    (error,response)=>{
         if(error)throw error
         else res.status(200).end()
     })
