@@ -25,6 +25,7 @@ app.post('/orders',jsonParser,(req,res)=>{
     (error,res)=>{
         if(error)throw error
     })
+    connection.end()
 })
 
 app.get('/ingredients',(req,res)=>{
@@ -34,8 +35,8 @@ app.get('/ingredients',(req,res)=>{
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
         })
-        
-        res.send(returnObject) 
+    connection.end()
+    res.send(returnObject) 
     })       
 })
 
@@ -53,6 +54,7 @@ app.get('/display',(req,res)=>{
             ordersArray.push({...newObject})
         }
         )
+    connection.end()
         res.send(ordersArray)        
     })
 
