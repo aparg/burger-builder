@@ -9,7 +9,10 @@ const connection = mysql.createConnection({
     user:process.env.DATABASE_NAME,
     password:process.env.DATABASE_PSWD,
     database:process.env.DATABASE,
-    port:process.env.PORT || 3306
+    port:process.env.PORT || 3306,
+    ssl : {
+        rejectUnauthorized: true
+      }
 })
 let jsonParser=bodyParser.json()
 
