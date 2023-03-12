@@ -42,7 +42,6 @@ app.get('/ingredients',(req,res)=>{
 app.get('/display',(req,res)=>{
     let ordersArray=[]
     let newObject={}
-    connection.connect()
     connection.query(`SELECT * FROM orders;`,(error,response)=>{
         if(error) throw error
         response.forEach(el=>{
@@ -56,7 +55,6 @@ app.get('/display',(req,res)=>{
         )
     res.status(200).send(ordersArray)        
     })
-    connection.end()
 })
 
 app.listen(4000,()=>{
