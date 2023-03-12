@@ -25,9 +25,9 @@ app.post('/orders',jsonParser,(req,res)=>{
     connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.meat},${req.body.bacon},${req.body.salad});`,
     (error,response)=>{
         if(error)throw error
-        else res.status(200).end()
     })
     connection.end()
+    res.status(200).send(returnObject) 
 })
 
 app.get('/ingredients',(req,res)=>{
