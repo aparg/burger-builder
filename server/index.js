@@ -21,6 +21,7 @@ app.get('/',(req,res)=>{
 })
 
 app.post('/orders',jsonParser,(req,res)=>{
+    connection.connect()
     connection.query(`INSERT INTO orders VALUES(${Date.now()},${req.body.cheese},${req.body.meat},${req.body.bacon},${req.body.salad});`,
     (error,res)=>{
         if(error)throw error
@@ -30,19 +31,21 @@ app.post('/orders',jsonParser,(req,res)=>{
 
 app.get('/ingredients',(req,res)=>{
     let returnObject={}
+    connection.connect()
     connection.query(`SELECT * FROM ingredients ORDER BY ingredient_no;`,(error,response)=>{
         if(error) throw error
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
         })
-    connection.end()
-    res.send(returnObject) 
-    })       
+        res.send(returnObject) 
+    })      
+    connection.end() 
 })
 
 app.get('/display',(req,res)=>{
     let ordersArray=[]
     let newObject={}
+    connection.connect()
     connection.query(`SELECT * FROM orders;`,(error,response)=>{
         if(error) throw error
         response.forEach(el=>{
@@ -54,10 +57,9 @@ app.get('/display',(req,res)=>{
             ordersArray.push({...newObject})
         }
         )
-    connection.end()
-        res.send(ordersArray)        
+    res.send(ordersArray)        
     })
-
+    connection.end()
 })
 
 app.listen(4000,()=>{
