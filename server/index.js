@@ -34,8 +34,9 @@ app.get('/ingredients',(req,res)=>{
         if(error) throw error
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
+            res.status(200).send(returnObject) 
         })
-        res.status(200).send(returnObject) 
+        
     })      
 })
 

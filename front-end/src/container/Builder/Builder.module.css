@@ -1,0 +1,24 @@
+*{
+    box-sizing: border-box;
+}
+.flexContainer{
+    display:flex;
+    padding: 20px;
+    flex-direction: column;
+    margin-top: 40px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width:575px) and (min-height: 400px){
+    .flexContainer{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-top: 150px;
+        padding: 20px;
+        width: 100%;
+        height:100%;
+    }
+}
+

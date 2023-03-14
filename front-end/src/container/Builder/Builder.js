@@ -6,6 +6,7 @@ import PurchasingContext from '../../components/contexts/PurchasingContext'
 import OrderSummary from '../../components/OrderSummary/OrderSummary'
 import Modal from '../Modal/Modal'
 import axios from '../../axios_orders'
+import BuilderStyle from './Builder.module.css'
 import Spinner from '../../components/Spinner/Spinner'
 import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler'
 
@@ -83,6 +84,7 @@ class Builder extends Component{
     render(){
         if(this.state.ingredients){
             this.ingredientDependents=<Aux>
+                    <div className={BuilderStyle.flexContainer}>
                     <Burger ingredients={this.state.ingredients}/>
                     <PurchasingContext.Provider value={{purchaseHandler:this.purchaseHandler}}>
                         <BuildControls 
@@ -91,6 +93,7 @@ class Builder extends Component{
                         removeIng={this.removeIngredients}
                         totalCost={this.state.totalCost}/>
                     </PurchasingContext.Provider>
+                    </div>
                     <Modal show={this.state.purchased} back={this.backFromPurchasingState}>
                         <OrderSummary ingredients={this.state.ingredients} total={this.state.totalCost} purchase={this.orderHandler} loading={this.state.loading}/>
                     </Modal>
