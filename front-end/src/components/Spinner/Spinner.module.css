@@ -9,7 +9,7 @@
 .spinner{
   animation: rotate 5s infinite;
   height:40px;
-  width:30px;
+  width:40px;
 }
 
 .spinnerContainer{
