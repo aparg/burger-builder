@@ -1,6 +1,6 @@
 import React from 'react'
 import ToggleStyle from './ToggleStyle.module.css'
-import ToggleButton from '../../../assets/images/toggle.png'
+import ToggleButton from '../../../assets/images/Toggle/toggle.png'
 
 const Toggle = (props) =>{
     return (
