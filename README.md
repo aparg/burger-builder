@@ -20,7 +20,7 @@ Also, the app is mobile friendly, a side bar appears for mobile devices insead o
 You can find the demo project(only front end included) here:
 - [GitHub] (https://aparg.github.io/burger-builder-frontend)
 
-A live demo with backend logic included is now available for this app hostel on vercel
+A live demo with backend logic included is now available for this app hosted using vercel. You can check it out here:
 - https://burger-builder-qnpv.vercel.app/ (app)
 - https://burger-builder-aparg.vercel.app/display (display api)
 
