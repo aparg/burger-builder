@@ -1,8 +1,6 @@
 import React,{ Component } from 'react'
 import Auxillary from '../../hoc/Auxillary'
 import NavigationContainer from '../../components/Navigation/NavigationContainer/NavigationContainer'
-// import SideDrawer from '../Navigation/SideDrawer/SideDrawer'
-// import NavigationBar from '../Navigation/NavigationContainer/NavigationContainer'
 
 class Layout extends Component{
     state={
@@ -10,8 +8,9 @@ class Layout extends Component{
     }
 
     //routes format: {Label1:href1, label2:href2}
-    routes={Home:'/',
-            About:'/aboutus'}
+    routes={"Home":'/',
+            "About":'/aboutus',
+            "Display orders": '/adminlogin'}
 
     switched = () => {
         let currentSideDrawer=this.state.sideDrawer

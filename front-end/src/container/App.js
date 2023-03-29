@@ -14,7 +14,7 @@ function App() {
       <Layout>
         <Route path="/" exact component={Builder}/>
         <Route path="/aboutus" exact component={AboutUs}/>
-        <Route path="/adminLogin" exact component={DisplayOrder}/>
+        <Route path="/adminlogin" exact component={DisplayOrder}/>
         {/* <Route path="/checkout" exact component={Checkout}/> */}
       </Layout>
       </div>

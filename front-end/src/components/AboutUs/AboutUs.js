@@ -11,7 +11,7 @@ const AboutUs = () =>{
                 <p>The order is instantly stored in our database system and the Dad's Burgers team will be working on your order in a matter of seconds.</p>
             </div>
     </div>
-
+    
     )
 }
 export default AboutUs
