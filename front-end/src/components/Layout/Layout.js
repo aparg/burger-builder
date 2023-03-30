@@ -17,6 +17,7 @@ class Layout extends Component{
     setNavbar= () => {
         this.setState({sideDrawer:false})
     }
+
     render(){
         return(   
             <Auxillary>

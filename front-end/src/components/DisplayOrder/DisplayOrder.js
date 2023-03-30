@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import Spinner from "../Spinner/Spinner";
 import axios from '../../axios_orders'
+import DisplayOrderStyle from './DisplayOrder.module.css'
 
-
-const DisplayOrder = () => {
+const DisplayOrder = (props) => {
     const [ordersObj, setOrders] = useState(null);
     let orderData = <Spinner/>
 
@@ -15,7 +15,7 @@ const DisplayOrder = () => {
     })
     //check if order is loaded
     if(ordersObj){
-        orderData =  <table>
+        orderData =  <table className={DisplayOrderStyle.displayTable}>
             <tbody>
                 <tr>
                     <th>Order Id</th>
@@ -24,15 +24,15 @@ const DisplayOrder = () => {
                     <th>Bacon</th>
                     <th>Salad</th>
                 </tr>
-                {console.log(ordersObj.ordersObj)}
                 {ordersObj.ordersObj.map(element => {
                     return(
-                        <tr>
+                        <tr key={element.order_id}>
                             <td>{element.order_id}</td>
                             <td>{element.cheese}</td>
                             <td>{element.meat}</td>
                             <td>{element.bacon}</td>
                             <td>{element.salad}</td>
+                            <td><button onClick={props.deleteHandler}><img src="../../assets/images/Delete-icon/deleteicon.png" alt="delete"/></button></td>
                         </tr>
                     )
                 })}
