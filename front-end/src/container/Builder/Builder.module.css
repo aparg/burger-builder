@@ -3,9 +3,11 @@
 }
 .flexContainer{
     display:flex;
-    padding: 20px;
+    padding-top: 80px;
+    padding-bottom: 80px;
     flex-direction: column;
-    margin-top: 40px;
+    margin-top: 0px;
+    margin-bottom: 0px;
     justify-content: center;
     align-items: center;
 }
@@ -15,8 +17,8 @@
         display: flex;
         flex-direction: row;
         align-items: center;
-        margin-top: 150px;
-        padding: 20px;
+        padding-top: 160px;
+        padding-bottom: 150px;
         width: 100%;
         height:100%;
     }

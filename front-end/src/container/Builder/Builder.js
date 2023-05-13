@@ -4,6 +4,7 @@ import Burger from '../../components/Burger/Burger'
 import Aux from '../../hoc/Auxillary'
 import BuildControls from '../../components/BuildControls/BuildControls'
 import PurchasingContext from '../../components/contexts/PurchasingContext'
+import Footer from '../../components/Footer/Footer'
 import OrderSummary from '../../components/OrderSummary/OrderSummary'
 import Modal from '../Modal/Modal'
 import axios from '../../axios_orders'
@@ -86,7 +87,7 @@ class Builder extends Component{
         if(this.state.ingredients){
             this.ingredientDependents=<Aux>
                     <Poster/>
-                    <div className={BuilderStyle.flexContainer}>
+                    <div className={BuilderStyle.flexContainer} id="BuildBurger">
                         <Burger ingredients={this.state.ingredients}/>
                         <PurchasingContext.Provider value={{purchaseHandler:this.purchaseHandler}}>
                             <BuildControls 
@@ -96,6 +97,7 @@ class Builder extends Component{
                             totalCost={this.state.totalCost}/>
                         </PurchasingContext.Provider>
                     </div>
+                    <Footer/>
                     <Modal show={this.state.purchased} back={this.backFromPurchasingState}>
                         <OrderSummary ingredients={this.state.ingredients} total={this.state.totalCost} purchase={this.orderHandler} loading={this.state.loading}/>
                     </Modal>

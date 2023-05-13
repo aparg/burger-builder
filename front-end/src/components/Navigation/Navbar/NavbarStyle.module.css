@@ -9,4 +9,5 @@
     height:7vh;
     background-color: rgb(26, 23, 23);
     overflow:hidden;
+    z-index:2;
 }

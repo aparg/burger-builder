@@ -8,7 +8,7 @@ function Poster(){
             <div class={PosterStyle.PosterContainer}>
                 <div className={PosterStyle.MainContent}>
                     <div className={PosterStyle.Quote}>Making Burgers customized <br/> to YOUR taste buds</div>
-                    <button className={PosterStyle.OrderButton} onClick={()=>window.scrollTo(0, document.body.scrollHeight)}>Order Now!</button>
+                    <button className={PosterStyle.OrderButton} onClick={()=>document.getElementById("BuildBurger").scrollIntoView({behavior:"smooth"})}>Order Now!</button>
                 </div>
                 <img src={PosterBurgerImg}/>
             </div>
