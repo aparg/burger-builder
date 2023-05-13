@@ -1,40 +1,33 @@
-import React, {useState, useEffect} from "react";
+// import React from "react";
+// import axios from "axios";
 
-const AdminLogin = (props) => {
-    const [LoggedInState,SetLoggedInState] = useState(0)
+// function LogIn(credentials){
+//     return axios.post('/logincredentials',credentials).then(res=>res.data)
+// }
 
-    useEffect(()=>{
-        
-    })
+// const AdminLogin = (props) => {
 
-    const getAuthorizedCredentials = () =>{
-        return axios.get('/logincredentials').then(
-            (res) =>  {
-                AuthUname = res.data.uname
-                AuthPswd = res.data.pswd
-                return {AuthUname,AuthPswd}
-            }
-        )
-    }
+//     const handleSubmit = async (event)=>{
+//         event.preventDefault()
+//         let uname = document.getElementById("uname").value
+//         let pswd = document.getElementById("pass").value
+//         let token = await LogIn({uname,pswd})
+//         console.log(token)
+//         props.settingToken(token)
+//     }
 
-    const handleSubmit = (event)=>{
-        event.preventDefault()
-        const {uname, pswd} = document.forms[0]
-        getAuthorizedCredentials().then((res)=>{
-            if(res.AuthUname==uname && res.AuthPswd) console.log("Authenticated")
-        }
-        )
-    }
-    return(
-        <>
-            <h1>Please login to view data</h1>
-            <form method="POST" action={handleSubmit} className="formSubmit">
-                <label for="uname">Username</label>
-                <input type="text" name="uname"></input>
-                <label for="pass">Password</label>
-                <input type="password" name="pass"></input>
-                <button type="submit">Submit</button>
-            </form>
-        </>
-    )
-}
+//     return(
+//         <>
+//             <h1>Please login to view data</h1>
+//             <form onSubmit={handleSubmit} className="formSubmit">
+//                 <label htmlFor="uname">Username</label>
+//                 <input type="text" name="uname" id="uname"></input>
+//                 <label htmlFor="pass">Password</label>
+//                 <input type="password" name="pass" id="pass"></input>
+//                 <button type="submit">Submit</button>
+//             </form>
+//         </>
+//     )
+// }
+
+// export default AdminLogin
