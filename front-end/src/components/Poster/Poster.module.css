@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap');
+.PosterContainer{
+    display: flex;
+    flex-direction: row;
+    height: 500px;
+    justify-content: space-between;
+}
+
+.OrderButton{
+    padding: 15px;
+    border: none;
+    border-radius: 10px;
+    background-color: #f1ad39;
+    font-size: 40px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.MainContent{
+    display:flex;
+    height: 100%;
+    flex-direction: column;
+    font-size: 40px;
+    font-family: 'Open Sans', sans-serif;
+    align-items: center;
+    justify-content: center;
+}
+
+.Quote{
+    height: 50%;
+}
+
+.Specialities{
+    margin-top: 100px;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.feature{
+    border: 2px solid rgb(197, 72, 72);
+    border-radius: 5px;
+    width: 20%;
+}
+
+.Title{
+    font-size: 20px;
+    font-weight: bold;
+}

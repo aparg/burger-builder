@@ -31,7 +31,7 @@ const BuildControls = (props) => {
             })}
 
             <div className={costDisplayer.join(' ')}><strong>Total Cost : </strong>{props.totalCost}</div>
-            <Button clicked={context.purchaseHandler} label="Order!"/>
+            <Button clicked={context.purchaseHandler} label="Add to Cart!"/>
         </div>
     )
 }

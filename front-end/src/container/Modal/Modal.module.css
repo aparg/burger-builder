@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
 
 .disappear{
-    transform:translateY(-200vh)
+    transform:translateY(-500vh)
 }
 
 .appear{
@@ -30,8 +30,8 @@
 }
 
 @keyframes get{
-    0%{transform: translateY(-200vh)}
-    50%{transform: translateY(-100vh)}
-    65%{transform: translateY(-50vh)}
+    0%{transform: translateY(-500vh)}
+    50%{transform: translateY(-200vh)}
+    65%{transform: translateY(-100vh)}
     100%{transform: translateY(0vh)}
 }

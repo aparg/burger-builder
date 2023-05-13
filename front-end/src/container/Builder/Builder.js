@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import Poster from '../../components/Poster/Poster'
 import Burger from '../../components/Burger/Burger'
 import Aux from '../../hoc/Auxillary'
 import BuildControls from '../../components/BuildControls/BuildControls'
@@ -84,15 +85,16 @@ class Builder extends Component{
     render(){
         if(this.state.ingredients){
             this.ingredientDependents=<Aux>
+                    <Poster/>
                     <div className={BuilderStyle.flexContainer}>
-                    <Burger ingredients={this.state.ingredients}/>
-                    <PurchasingContext.Provider value={{purchaseHandler:this.purchaseHandler}}>
-                        <BuildControls 
-                        ingredients={this.state.ingredients} 
-                        addIng={this.addIngredients} 
-                        removeIng={this.removeIngredients}
-                        totalCost={this.state.totalCost}/>
-                    </PurchasingContext.Provider>
+                        <Burger ingredients={this.state.ingredients}/>
+                        <PurchasingContext.Provider value={{purchaseHandler:this.purchaseHandler}}>
+                            <BuildControls 
+                            ingredients={this.state.ingredients} 
+                            addIng={this.addIngredients} 
+                            removeIng={this.removeIngredients}
+                            totalCost={this.state.totalCost}/>
+                        </PurchasingContext.Provider>
                     </div>
                     <Modal show={this.state.purchased} back={this.backFromPurchasingState}>
                         <OrderSummary ingredients={this.state.ingredients} total={this.state.totalCost} purchase={this.orderHandler} loading={this.state.loading}/>

@@ -25,10 +25,12 @@ class Layout extends Component{
         return(   
             <Auxillary>
                 <NavigationContainer elements={this.routes} sideDrawer={this.state.sideDrawer} switched={this.switched} setNavbar={this.setNavbar}/>
+                <div style={{marginTop: "60px"}}>
                 {this.props.children}
+                </div>
             </Auxillary> 
     )}
-    
+
 }
 
 export default Layout
