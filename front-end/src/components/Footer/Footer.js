@@ -5,7 +5,7 @@ function Footer(){
     return(
         <div className={FooterStyle.FooterContainer}>
             <div className={FooterStyle.FooterFlexContainer}>
-                <img style={{height:"400px", overflow:"hidden"}} src={LogoImg} alt="Logo"/>
+                <img style={{height:"350px", overflow:"hidden", }} src={LogoImg} alt="Logo"/>
                 <div style={{backgroundColor:"grey", width:"0.5px", marginTop:"30px",marginBottom:"30px"}}></div>
                 <div className={FooterStyle.Title}>
                     <h2 style={{textDecoration:"underline"}}>CONTACT US</h2>
@@ -15,11 +15,11 @@ function Footer(){
                 <div style={{backgroundColor:"grey", width:"0.5px", marginTop:"30px",marginBottom:"30px"}}></div>
                 <div className={FooterStyle.Title}>
                     <h2 style={{textDecoration:"underline"}}>OTHER LINKS</h2>
-                    <a href="/aboutus">About Us</a><br></br>
-                    <a href="https://github.com/aparg/">Developer's Github</a>
+                    <a className={FooterStyle.OtherLinks} href="/aboutus">About Us</a><br></br>
+                    <a className={FooterStyle.OtherLinks} href="https://github.com/aparg/">Developer's Github</a>
                 </div>
             </div>
-            <span className={FooterStyle.Copyright}>All rights reserved 2023 &copy; <a href="https://github.com/aparg/">Apar Gautam</a></span>
+            <span className={FooterStyle.Copyright}>All rights reserved 2023 &copy; <a className={FooterStyle.OtherLinks} href="https://github.com/aparg/">Apar Gautam</a></span>
         </div>
         
 

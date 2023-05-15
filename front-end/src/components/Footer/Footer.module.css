@@ -1,6 +1,7 @@
 .FooterContainer{
     height: 400px;
-    background-color: #000000;
+    background-color: #27272e;
+    padding: 1%;
 }
 
 .FooterFlexContainer{
@@ -12,12 +13,12 @@
     height: 92%;
 }
 
-a{
+.OtherLinks{
     text-decoration: none;
     color:white;
 }
 
-a:hover{
+.OtherLinks:hover{
     font-weight: bold;
 }
 

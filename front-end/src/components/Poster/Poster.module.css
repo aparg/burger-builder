@@ -14,6 +14,7 @@
     font-size: 40px;
     font-family: 'Courier New', Courier, monospace;
     font-weight: bold;
+    cursor: pointer;
 }
 
 .MainContent{
@@ -24,23 +25,32 @@
     font-family: 'Open Sans', sans-serif;
     align-items: center;
     justify-content: center;
+    width:100%;
 }
 
 .Quote{
-    height: 50%;
+    margin-left: 10%;
+    height: 35%;
 }
 
 .Specialities{
-    margin-top: 50px;
+    margin-top:20px;
+    padding: 5%;
     display:flex;
     flex-direction: row;
     justify-content: space-around;
+    background-color: #27272e;
 }
 
 .feature{
     border: 2px solid rgb(197, 72, 72);
     border-radius: 5px;
     width: 20%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
 }
 
 .Title{
