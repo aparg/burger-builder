@@ -18,7 +18,7 @@ function Poster(){
             <div className={PosterStyle.Specialities}>
                 <div className={PosterStyle.feature}>
                     <div className={PosterStyle.Title}>Fast delivery</div>
-                    <img src={DeliveryIcon} style={{width:"40%", height:"40%", marginBottom:"20px", marginTop:"36px"}} alt="delivery van"/>
+                    <img src={DeliveryIcon} style={{width:"60%", height:"40%", marginBottom:"20px", marginTop:"36px"}} alt="delivery van"/>
                     <div className={PosterStyle.Content}>Delivery within 30 minutes of order</div>
                 </div>
                 <div className={PosterStyle.feature}>

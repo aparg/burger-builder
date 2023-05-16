@@ -5,7 +5,7 @@ function Footer(){
     return(
         <div className={FooterStyle.FooterContainer}>
             <div className={FooterStyle.FooterFlexContainer}>
-                <img style={{height:"350px", overflow:"hidden", }} src={LogoImg} alt="Logo"/>
+                <img style={{height:"90%"}} src={LogoImg}  alt="Logo"/>
                 <div style={{backgroundColor:"grey", width:"0.5px", marginTop:"30px",marginBottom:"30px"}}></div>
                 <div className={FooterStyle.Title}>
                     <h2 style={{textDecoration:"underline"}}>CONTACT US</h2>

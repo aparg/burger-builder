@@ -17,6 +17,11 @@
     cursor: pointer;
 }
 
+.OrderButton:hover{
+    color: #ffffff;
+    font-size: 45px;
+}
+
 .MainContent{
     display:flex;
     height: 100%;
@@ -53,7 +58,26 @@
     padding: 15px;
 }
 
+.feature:hover{
+    cursor: pointer;
+    border: 2px solid white;
+}
+
 .Title{
     font-size: 20px;
     font-weight: bold;
+}
+
+@media (max-width:500px){
+    .MainContent{
+        font-size:30px;
+    }
+    .PosterContainer{
+        flex-direction:column;
+    }
+    .OrderButton{
+        padding: 10px;
+        font-size: 20px;
+    }
+    
 }
