@@ -13,7 +13,7 @@ function Poster(){
                     <div className={PosterStyle.Quote}>Making Burgers customized <br/> to YOUR taste buds</div>
                     <button className={PosterStyle.OrderButton} onClick={()=>document.getElementById("BuildBurger").scrollIntoView({behavior:"smooth"})}>Order Now!</button>
                 </div>
-                <img style={{width:"100%"}} src={PosterBurgerImg} alt="Juicy Burger"/>
+                <img src={PosterBurgerImg} alt="Juicy Burger"/>
             </div>
             <div className={PosterStyle.Specialities}>
                 <div className={PosterStyle.feature}>

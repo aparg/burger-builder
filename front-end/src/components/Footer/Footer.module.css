@@ -13,6 +13,10 @@
     height: 92%;
 }
 
+.logo{
+    height:90%;
+}
+
 .OtherLinks{
     text-decoration: none;
     color:white;
@@ -28,5 +32,42 @@
 
 .Copyright{
     float: right;
-    color:white
+    color:white;
+}
+
+.Copyright a{
+    color:white;
+}
+
+.separator{
+    background-color:grey; 
+    width:0.5px;
+    margin-top:30px;
+    margin-bottom:30px
+}
+
+@media (max-width:500px){
+    .FooterFlexContainer{
+        flex-direction: column;
+    }
+
+    .separator{
+        display: none;
+    }
+
+    .FooterContainer{
+        height: fit-content;
+    }    
+
+    .Copyright{
+        color: #000;
+    }
+
+    .Copyright a{
+        color:black;
+    }
+
+    .logo{
+        height: 60vh;
+    }
 }
