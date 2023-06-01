@@ -1,7 +1,10 @@
 <h1 align="center">Burger-builder</h1>
 <h5 align="center">Make your own Burger</h5>
 
-![Burger Builder](https://i.imgur.com/faRAdei.jpg)
+![Burger Builder Hompage](https://imgur.com/a/esHAH4V)
+![Burger Builder Hompage 1](https://imgur.com/a/DL5gqhI)
+![Burger Builder Homepage 2](https://imgur.com/a/esHAH4V)
+![Burger Builder Homepage 3](https://imgur.com/a/PYd5c8E)
 ![Order Summary](https://i.imgur.com/Xoieudu.jpg)
 ![Displaying Errors](https://i.imgur.com/Kcqernj.jpg)
 ![Mobile View](https://i.imgur.com/7TrhnN2.jpg)
