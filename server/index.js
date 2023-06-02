@@ -11,13 +11,13 @@ const connection = mysql.createConnection({
     database:process.env.DATABASE,
     port:process.env.PORT || 3306,
     ssl : {
-        rejectUnauthorized: true
-      }
+        rejectUnauthorized: false
+    }
 })
 let jsonParser=bodyParser.json()
 
 app.get('/',(req,res)=>{
-    res.send('YO')
+    res.send('<h1>API FOR THE BURGER APP<h1>')
 })
 
 app.post('/orders',jsonParser,(req,res)=>{
@@ -29,6 +29,24 @@ app.post('/orders',jsonParser,(req,res)=>{
   
 })
 
+app.post('/logincredentials',jsonParser,(req,res)=>{
+    console.log(req.body.pswd)
+    connection.query(`SELECT COUNT(username) FROM credentials WHERE username="${req.body.uname}" AND password="${req.body.pswd}"`,(error,response)=>{
+        if(response[0]["count(username)"]==1)res.send(true)
+    })
+    // connection.query(`SELECT * FROM credentials`,(error,response)=>{
+    //     if(error) throw error
+    //     verifyCredentials(response)
+    // })
+
+    // const verifyCredentials = (response) =>{
+    //     console.log(response)
+        
+    // }
+})
+
+app.get('')
+
 app.get('/ingredients',(req,res)=>{
     let returnObject={}
     connection.query(`SELECT * FROM ingredients ORDER BY ingredient_no;`,(error,response)=>{
@@ -36,7 +54,7 @@ app.get('/ingredients',(req,res)=>{
         response.forEach(el=>{
             returnObject[el.ingredient]=el.amount
         })
-        res.status(200).send(returnObject) 
+        res.status(200).send(returnObject)
     })      
 })
 
