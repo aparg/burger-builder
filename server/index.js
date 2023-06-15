@@ -30,19 +30,11 @@ app.post('/orders',jsonParser,(req,res)=>{
 })
 
 app.post('/logincredentials',jsonParser,(req,res)=>{
-    console.log(req.body.pswd)
     connection.query(`SELECT COUNT(username) FROM credentials WHERE username="${req.body.uname}" AND password="${req.body.pswd}"`,(error,response)=>{
-        if(response[0]["count(username)"]==1)res.send(true)
-    })
-    // connection.query(`SELECT * FROM credentials`,(error,response)=>{
-    //     if(error) throw error
-    //     verifyCredentials(response)
-    // })
-
-    // const verifyCredentials = (response) =>{
-    //     console.log(response)
-        
-    // }
+        if(response[0]["count(username)"]==1)res.send("$#*LOGGEDIN*$#")
+        else
+        res.send(false)
+    })  
 })
 
 app.get('')

@@ -10,6 +10,13 @@ import DisplayOrder from '../components/DisplayOrder/DisplayOrder'
 import './App.css';
 
 
+function getToken(){
+  const tokenString = sessionStorage.getItem('token')
+  const userToken = JSON.parse(tokenString)
+  return userToken?.token
+}
+
+
 function App() {
 
   return (
