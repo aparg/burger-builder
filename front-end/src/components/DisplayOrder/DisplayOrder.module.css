@@ -3,6 +3,12 @@
     width: 100%
 }
 
+.deleteButton{
+    height: 2vh;
+    width: 2vw;
+}
+
+
 tr{
     background-color: rgb(162, 194, 255);
 }
@@ -14,3 +20,4 @@ tr:first-child{
 td{
     height: 20px;
 }
+

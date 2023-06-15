@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.Box{
+    display:flex;
+    flex-direction: column;
+    position: absolute;
+    border: 1px;
+    background-color: white;
+    border-radius: 5px;
+    top:50%;left:50%;
+    transform: translate(-50%,-50%);
+    align-items: center;
+    font-size: 80%;
+    /* justify-content: center; */
+}
+
+.title{
+    position: relative;
+    font-family: 'PT Sans Narrow', sans-serif;
+    font-size: 250%; 
+    font-weight: 800;
+    color: #08bca4;
+    padding:2vh 0 2vh 0;
+}
+
+.signin{
+    font-family: 'Open Sans', sans-serif;
+    font-size: 130%;
+}
+
+.form{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    background-color:white;
+    position: relative;
+    width:100%;
+    box-sizing: border-box;
+    padding:1% 10% 0% 10%;     
+}
+
+.line{
+    width:100%;
+    border-bottom: 2px solid rgb(199, 199, 199);
+}
+
+.forgot{
+    color: rgb(110, 110, 110);
+    font-size:small;    
+    font-family: 'Open Sans', sans-serif;
+    margin:auto;
+}
+
+.signup{
+    /* padding-top: 6%; */
+    font-family: 'Open Sans', sans-serif;
+    display:flex;
+    margin: auto;
+}
+
+a{
+    text-decoration: none;
+    color: #3c88fc; 
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 768px){
+    .Box{
+        height: 52vh;
+        width: 60vw;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 992px) and (min-width: 769px) { 
+    .Box{
+        height: 50vh;
+        width: 40vw;
+    }
+    
+}
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 1199px) and (min-width:993px){ 
+    .Box{
+        height: 50vh;
+        width: 40vw;
+    }
+}
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px){ 
+    .Box{
+        height: 52vh;
+        width:26vw;
+    }
+};
+
+
+

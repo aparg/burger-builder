@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+.Button,.Input{
+    height: 6vh;
+    width:100%;
+    box-sizing: border-box;
+    /* line-height: 5vh; */
+    margin:2% 0 2% 0;
+    font-size: 110%;
+    padding: 4%;
+    font-family: 'Open Sans', sans-serif;
+    border: none;
+}
+
+.Input:focus::-webkit-input-placeholder{
+    color:rgb(199, 199, 199);
+    outline:none;
+    border: none;
+}
+
+.Button{
+    background-color: #3c88fc;
+    border-radius: 5px;
+    color: white;
+    border:none;
+}
+
+.Button:hover{
+    cursor:pointer;
+}
+
+.Input{
+    background-color: rgb(246, 246, 246);
+}
+
+.inputError{
+    background-color:rgb(243, 215, 215);
+}
+
+.buttonDisabled{
+    /* cursor: null; */
+    background-color: grey;
+}
