@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
-.Button,.Input{
+.submitButton,.inputFields{
     height: 6vh;
     width:100%;
     box-sizing: border-box;
@@ -17,18 +17,18 @@
     border: none;
 }
 
-.Button{
+.submitButton{
     background-color: #3c88fc;
     border-radius: 5px;
     color: white;
     border:none;
 }
 
-.Button:hover{
+.submitButton:hover{
     cursor:pointer;
 }
 
-.Input{
+.inputFields{
     background-color: rgb(246, 246, 246);
 }
 

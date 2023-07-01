@@ -3,8 +3,9 @@ import FormElementStyle from './FormElement.module.css'
 
 const FormElement = (props)=>{
     let inputElement
-    let inputClasses = [FormElementStyle.Input]
-    let buttonClasses = [FormElementStyle.Button]
+    let inputClasses = [FormElementStyle.inputFields]
+    let buttonClasses = [FormElementStyle.submitButton]
+    
     if(!props.valid){
         inputClasses.push(FormElementStyle.inputError)
         buttonClasses.push(FormElementStyle.buttonDisabled)

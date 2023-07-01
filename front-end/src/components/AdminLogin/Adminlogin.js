@@ -90,15 +90,8 @@ const AdminLogin = (props) => {
                 </form>
                 <span className={AdminLoginStyle.forgot}>Forgot email/username or password?<a href="./">Click here!</a></span>
                 <div className={AdminLoginStyle.line}></div>
-                <span className={AdminLoginStyle.signup}>New to Belt?<a href="./">Belt up now!</a></span>
+                <span className={AdminLoginStyle.signup}>Want to register a new admin account?<a href="./">Call us now!</a></span>
             </div>
-            {/* <form onSubmit={handleSubmit} className="formSubmit">
-                <label htmlFor="uname">Username</label>
-                <input type="text" name="uname" id="uname"></input>
-                <label htmlFor="pass">Password</label>
-                <input type="password" name="pass" id="pass"></input>
-                <button type="submit">Submit</button>
-            </form> */}
         </>
     )
 }
