@@ -1,6 +1,7 @@
-import React,{ Component } from 'react'
+import React,{ Component, useContext } from 'react'
 import Auxillary from '../../hoc/Auxillary'
 import NavigationContainer from '../../components/Navigation/NavigationContainer/NavigationContainer'
+import SideDrawerContext from '../../components/contexts/MobileDeviceContext'
 
 class Layout extends Component{
     state={
@@ -24,10 +25,12 @@ class Layout extends Component{
     render(){
         return(   
             <Auxillary>
-                <NavigationContainer elements={this.routes} sideDrawer={this.state.sideDrawer} switched={this.switched} setNavbar={this.setNavbar}/>
-                <div style={{marginTop: "60px"}}>
-                {this.props.children}
-                </div>
+                <SideDrawerContext.Provider value={this.state.sideDrawer}>
+                    <NavigationContainer elements={this.routes} switched={this.switched} setNavbar={this.setNavbar}/>
+                    <div style={{marginTop: "60px"}}>
+                    {this.props.children}
+                    </div>
+                </SideDrawerContext.Provider>
             </Auxillary> 
     )}
 

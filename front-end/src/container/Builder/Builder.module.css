@@ -1,6 +1,7 @@
 *{
     box-sizing: border-box;
 }
+
 .flexContainer{
     display:flex;
     padding-top: 80px;

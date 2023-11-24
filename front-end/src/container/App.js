@@ -9,14 +9,6 @@ import AdminPage from '../components/AdminPage/AdminPage'
 import DisplayOrder from '../components/DisplayOrder/DisplayOrder'
 import './App.css';
 
-
-function getToken(){
-  const tokenString = sessionStorage.getItem('token')
-  const userToken = JSON.parse(tokenString)
-  return userToken?.token
-}
-
-
 function App() {
 
   return (
@@ -26,7 +18,7 @@ function App() {
           <Route path="/" exact component={Builder}/>
           <Route path="/aboutus" exact component={AboutUs}/>
           <Route path="/adminlogin" exact component={AdminPage}/>
-          {/* <Route path="/checkout" exact component={Checkout}/> */}
+          
         </Layout>
       </div>
     </BrowserRouter>
