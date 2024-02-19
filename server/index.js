@@ -4,7 +4,7 @@ const app = express();
 const bodyParser = require("body-parser");
 const { Client } = require("pg");
 require("dotenv").config({ path: __dirname + "/.env" });
-console.log(process.env.port);
+console.log(process.env.PORT);
 const client = new Client({
   host: process.env.HOST,
   user: process.env.DATABASE_NAME,
