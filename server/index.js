@@ -11,7 +11,7 @@ const client = new Client({
   database: process.env.DATABASE,
   port: process.env.PORT || 3306,
   ssl: {
-    rejectUnauthorized: true,
+    rejectUnauthorized: false,
   },
 });
 let jsonParser = bodyParser.json();
@@ -38,6 +38,7 @@ app.post("/logincredentials", jsonParser, async (req, res) => {
 });
 
 app.get("/ingredients", async (req, res) => {
+  await client.connect();
   let returnObject = {};
   console.log("fetching data...");
   const response = await client.query(
@@ -48,6 +49,7 @@ app.get("/ingredients", async (req, res) => {
     returnObject[el.ingredient] = el.amount;
   });
   res.status(200).send(returnObject);
+  await client.end();
 });
 
 app.get("/display", async (req, res) => {
@@ -72,5 +74,4 @@ app.get("/display", async (req, res) => {
 
 app.listen(4000, async () => {
   console.log("Listening in port 4000");
-  await client.connect();
 });
