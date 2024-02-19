@@ -10,7 +10,7 @@ const client = new Client({
   user: process.env.DATABASE_NAME,
   password: process.env.DATABASE_PSWD,
   database: process.env.DATABASE,
-  port: process.env.PORT || 3306,
+  port: process.env.PORT || 5432,
   ssl: {
     rejectUnauthorized: false,
   },
