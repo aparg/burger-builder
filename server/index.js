@@ -4,21 +4,16 @@ const mysql = require("mysql");
 const bodyParser = require("body-parser");
 require("dotenv").config();
 
-try {
-  const connection = mysql.createConnection({
-    host: process.env.HOST,
-    user: process.env.DATABASE_NAME,
-    password: process.env.DATABASE_PSWD,
-    database: process.env.DATABASE,
-    port: process.env.PORT || 3306,
-    ssl: {
-      rejectUnauthorized: false,
-    },
-  });
-} catch (err) {
-  console.log("Db not connected");
-  console.log(err);
-}
+const connection = mysql.createConnection({
+  host: process.env.HOST,
+  user: process.env.DATABASE_NAME,
+  password: process.env.DATABASE_PSWD,
+  database: process.env.DATABASE,
+  port: process.env.PORT || 3306,
+  ssl: {
+    rejectUnauthorized: false,
+  },
+});
 let jsonParser = bodyParser.json();
 
 app.get("/", (req, res) => {
