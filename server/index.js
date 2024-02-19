@@ -44,7 +44,8 @@ app.get("/ingredients", async (req, res) => {
   const response = await client.query(
     `SELECT * FROM ingredients ORDER BY amount;`
   );
-  response.rows.forEach((el) => {
+  console.log(response);
+  response?.rows?.forEach((el) => {
     returnObject[el.ingredient] = el.amount;
   });
   res.status(200).send(returnObject);
@@ -65,7 +66,7 @@ app.get("/display", async (req, res) => {
   res.status(200).send(ordersArray);
 });
 
-app.listen(4000, () => {
+app.listen(4000, async () => {
   console.log("Listening in port 4000");
-  client.connect();
+  await client.connect();
 });
