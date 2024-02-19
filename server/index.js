@@ -55,16 +55,21 @@ app.get("/ingredients", async (req, res) => {
 app.get("/display", async (req, res) => {
   let ordersArray = [];
   let newObject = {};
-  const response = await client.query(`SELECT * FROM orders;`);
-  response.forEach((el) => {
-    newObject.order_id = el.order_id;
-    newObject.cheese = el.cheese;
-    newObject.meat = el.meat;
-    newObject.bacon = el.bacon;
-    newObject.salad = el.salad;
-    ordersArray.push({ ...newObject });
-  });
-  res.status(200).send(ordersArray);
+  try {
+    const response = await client.query(`SELECT * FROM orders;`);
+    response.forEach((el) => {
+      newObject.order_id = el.order_id;
+      newObject.cheese = el.cheese;
+      newObject.meat = el.meat;
+      newObject.bacon = el.bacon;
+      newObject.salad = el.salad;
+      ordersArray.push({ ...newObject });
+    });
+    res.status(200).send(ordersArray);
+  } catch (err) {
+    console.log(err);
+    res.status(400);
+  }
 });
 
 app.listen(4000, async () => {
