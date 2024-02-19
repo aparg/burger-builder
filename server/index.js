@@ -11,7 +11,7 @@ const client = new Client({
   database: process.env.DATABASE,
   port: process.env.PORT || 3306,
   ssl: {
-    rejectUnauthorized: false,
+    rejectUnauthorized: true,
   },
 });
 let jsonParser = bodyParser.json();
@@ -33,11 +33,9 @@ app.post("/logincredentials", jsonParser, async (req, res) => {
   const response = await client.query(
     `SELECT COUNT(username) FROM credentials WHERE username='${req.body.uname}' AND password='${req.body.pswd}'`
   );
-  if (response[0]["count(username)"] == 1) res.send("$#*LOGGEDIN*$#");
+  if (response?.rows[0]["count(username)"] == 1) res.send("$#*LOGGEDIN*$#");
   else res.send(false);
 });
-
-app.get("");
 
 app.get("/ingredients", async (req, res) => {
   let returnObject = {};
@@ -57,7 +55,7 @@ app.get("/display", async (req, res) => {
   let newObject = {};
   try {
     const response = await client.query(`SELECT * FROM orders;`);
-    response.forEach((el) => {
+    response?.rows?.forEach((el) => {
       newObject.order_id = el.order_id;
       newObject.cheese = el.cheese;
       newObject.meat = el.meat;
