@@ -41,6 +41,7 @@ app.get("");
 
 app.get("/ingredients", async (req, res) => {
   let returnObject = {};
+  console.log("fetching data...");
   const response = await client.query(
     `SELECT * FROM ingredients ORDER BY amount;`
   );
@@ -54,7 +55,7 @@ app.get("/ingredients", async (req, res) => {
 app.get("/display", async (req, res) => {
   let ordersArray = [];
   let newObject = {};
-  const response = client.query(`SELECT * FROM orders;`);
+  const response = await client.query(`SELECT * FROM orders;`);
   response.forEach((el) => {
     newObject.order_id = el.order_id;
     newObject.cheese = el.cheese;
