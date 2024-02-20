@@ -10,7 +10,7 @@
   padding: 15px;
   border: none;
   border-radius: 10px;
-  background-color: #f1ad39;
+  background-color: var(--orange);
   font-size: 100%;
   font-family: "Courier New", Courier, monospace;
   font-weight: bold;
@@ -20,7 +20,6 @@
 
 .OrderButton:hover {
   color: #ffffff;
-  font-size: 120%;
 }
 
 .MainContent {

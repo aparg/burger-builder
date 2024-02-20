@@ -1,13 +1,14 @@
-.nav{
-    display:flex; 
-    position: fixed;
-    justify-content: flex-start;
-    align-items:center;
-    top:0;
-    left:0;
-    right:0;
-    height:7vh;
-    background-color: rgb(26, 23, 23);
-    overflow:hidden;
-    z-index:2;
+.nav {
+  display: flex;
+  position: sticky;
+  justify-content: flex-start;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 7vh;
+  width: 100%;
+  background-color: rgb(26, 23, 23);
+  z-index: 2;
+  padding: 2% 0;
 }

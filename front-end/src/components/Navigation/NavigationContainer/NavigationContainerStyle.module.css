@@ -1,11 +1,13 @@
-.main{
-    display:flex;
-    flex-direction: row;
+.main {
+  display: flex;
+  flex-direction: row;
+  position: sticky;
+  width: 100%;
 }
 
-.image{
-    height:2vh;
-    width:3.5vh;
-    margin:0 2%;
-    cursor:pointer;
+.image {
+  height: 2vh;
+  width: 3.5vh;
+  margin: 0 2%;
+  cursor: pointer;
 }

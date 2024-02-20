@@ -1,23 +1,24 @@
-.displayTable{
-    margin: 4% 0;
-    width: 100%
+.displayTable {
+  margin: 4% 0;
+  width: 100%;
 }
 
-.deleteButton{
-    height: 2vh;
-    width: 2vw;
+.delete {
+  position: relative;
 }
 
-
-tr{
-    background-color: rgb(162, 194, 255);
+.delete:hover {
+  cursor: pointer;
 }
 
-tr:first-child{
-    background-color: rgb(82, 118, 207);
+tr {
+  background-color: rgb(162, 194, 255);
 }
 
-td{
-    height: 20px;
+tr:first-child {
+  background-color: rgb(82, 118, 207);
 }
 
+td {
+  height: 20px;
+}

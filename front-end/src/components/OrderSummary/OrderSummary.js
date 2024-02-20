@@ -25,7 +25,7 @@ const OrderSummary = (props) => {
     0,
     <div className={OrderSummaryStyle.data} key={"titles"}>
       <div className={OrderSummaryStyle.titleItem}>
-        <strong>Ingredients</strong>
+        <strong>Contents</strong>
       </div>
       <div className={OrderSummaryStyle.titleQuantity}>
         <strong>Quantity</strong>
@@ -36,13 +36,26 @@ const OrderSummary = (props) => {
   return props.loading ? (
     <Spinner />
   ) : (
-    <Aux cl={OrderSummaryStyle.main}>
-      <strong className={OrderSummaryStyle.title}>Order Summary</strong>
-      <ul className={OrderSummaryStyle.listStyle}>{data}</ul>
-      <button className={OrderSummaryStyle.order} onClick={props.purchase}>
-        Purchase
-      </button>
-    </Aux>
+    <div className={OrderSummaryStyle.wrapper}>
+      <div className={OrderSummaryStyle.title}>
+        <strong className={OrderSummaryStyle.titleTxt}>Order Summary</strong>
+      </div>
+      <div className={OrderSummaryStyle.main}>
+        <div className={OrderSummaryStyle.orderDetails}>
+          <ul className={OrderSummaryStyle.listStyle}>{data}</ul>
+        </div>
+        <div className={OrderSummaryStyle.priceDetails}>
+          <span style={{ fontSize: 1.5 + "rem" }}>Your total:</span>
+          <div className={OrderSummaryStyle.totalPrice}>Rs.{props.total}</div>
+          <button
+            className={OrderSummaryStyle.purchaseBtn}
+            onClick={props.purchase}
+          >
+            <strong>Purchase</strong>
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
