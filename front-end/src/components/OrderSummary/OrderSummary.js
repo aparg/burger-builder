@@ -2,7 +2,6 @@ import React from "react";
 import OrderSummaryStyle from "./OrderSummary.module.css";
 import Aux from "../../hoc/Auxillary";
 import Spinner from "../Spinner/Spinner";
-import Logo from "../Logo/Logo";
 // import { Link } from 'react-router-dom'
 
 const OrderSummary = (props) => {
@@ -38,10 +37,6 @@ const OrderSummary = (props) => {
     <Spinner />
   ) : (
     <Aux cl={OrderSummaryStyle.main}>
-      <div className={OrderSummaryStyle.rowFLex}>
-        <Logo />
-        <h2>Cost: 2.15$</h2>
-      </div>
       <strong className={OrderSummaryStyle.title}>Order Summary</strong>
       <ul className={OrderSummaryStyle.listStyle}>{data}</ul>
       <button className={OrderSummaryStyle.order} onClick={props.purchase}>

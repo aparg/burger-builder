@@ -11,7 +11,6 @@ import axios from "../../axios_orders";
 import BuilderStyle from "./Builder.module.css";
 import Spinner from "../../components/Spinner/Spinner";
 import withErrorHandler from "../../hoc/withErrorHandler/withErrorHandler";
-import Cart from "../../components/Cart/Cart";
 
 class Builder extends Component {
   state = {
@@ -19,7 +18,6 @@ class Builder extends Component {
     totalCost: 20,
     purchased: false,
     loading: false,
-    showCart: false,
   };
 
   price = {
@@ -105,9 +103,6 @@ class Builder extends Component {
               purchase={this.orderHandler}
               loading={this.state.loading}
             />
-          </Modal>
-          <Modal show={this.state.showCart} back={this.backFromPurchasingState}>
-            <Cart total={this.totalCost} />
           </Modal>
         </Aux>
       );
