@@ -45,11 +45,9 @@ app.post("/logincredentials", jsonParser, async (req, res) => {
 app.get("/ingredients", async (req, res) => {
   await client?.connect();
   let returnObject = {};
-  console.log("fetching data...");
   const response = await client?.query(
     `SELECT * FROM ingredients ORDER BY amount;`
   );
-  console.log(response);
   response?.rows?.forEach((el) => {
     returnObject[el.ingredient] = el.amount;
   });
