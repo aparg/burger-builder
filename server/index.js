@@ -22,28 +22,29 @@ app.get("/", (req, res) => {
 });
 
 app.post("/orders", jsonParser, async (req, res) => {
-  await client?.connect();
   await client?.query(
     `INSERT INTO orders (order_id, cheese, meat, bacon, salad) VALUES (${Date.now()},${
       req.body.cheese
     },${req.body.meat},${req.body.bacon},${req.body.salad});`
   );
-  await client?.end();
   res.status(200).end();
 });
 
 app.post("/logincredentials", jsonParser, async (req, res) => {
-  await client?.connect();
   const response = await client?.query(
     `SELECT COUNT(username) FROM credentials WHERE username='${req.body.uname}' AND password='${req.body.pswd}'`
   );
-  await client?.end();
-  if (response?.rows[0]["count(username)"] == 1) res.send("$#*LOGGEDIN*$#");
+  console.log(response.rows);
+  if (response?.rows[0]["count"] == 1) res.send("$#*LOGGEDIN*$#");
   else res.send(false);
 });
 
+app.post("/deleteOrder", jsonParser, async (req, res) => {
+  console.log(req.body.id);
+  await client?.query(`DELETE FROM orders WHERE order_id='${req.body.id}'`);
+  res.status(200);
+});
 app.get("/ingredients", async (req, res) => {
-  await client?.connect();
   let returnObject = {};
   const response = await client?.query(
     `SELECT * FROM ingredients ORDER BY amount;`
@@ -51,15 +52,13 @@ app.get("/ingredients", async (req, res) => {
   response?.rows?.forEach((el) => {
     returnObject[el.ingredient] = el.amount;
   });
-  await client?.end();
   res.status(200).send(returnObject);
 });
 
-app.get("/display", async (req, res) => {
+app.post("/display", async (req, res) => {
   let ordersArray = [];
   let newObject = {};
   try {
-    await client?.connect();
     const response = await client?.query(`SELECT * FROM orders;`);
     response?.rows?.forEach((el) => {
       newObject.order_id = el.order_id;
@@ -69,15 +68,14 @@ app.get("/display", async (req, res) => {
       newObject.salad = el.salad;
       ordersArray.push({ ...newObject });
     });
-    await client?.end();
     res.status(200).send(ordersArray);
   } catch (err) {
     console.log(err);
-    await client?.end();
     res.status(400);
   }
 });
 
 app.listen(4000, async () => {
   console.log("Listening in port 4000");
+  client.connect();
 });
