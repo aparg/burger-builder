@@ -2,10 +2,10 @@ const express = require("express");
 const app = express();
 // const mysql = require("mysql");
 const bodyParser = require("body-parser");
-const { Client } = require("pg");
+const { Pool } = require("pg");
 require("dotenv").config({ path: __dirname + "/.env" });
 console.log(process.env.PORT);
-const client = new Client({
+const pool = new Pool({
   host: process.env.HOST,
   user: process.env.DATABASE_NAME,
   password: process.env.DATABASE_PSWD,
@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 });
 
 app.post("/orders", jsonParser, async (req, res) => {
+  const client = pool.connect();
   await client?.query(
     `INSERT INTO orders (order_id, cheese, meat, bacon, salad) VALUES (${Date.now()},${
       req.body.cheese
@@ -31,6 +32,7 @@ app.post("/orders", jsonParser, async (req, res) => {
 });
 
 app.post("/logincredentials", jsonParser, async (req, res) => {
+  const client = pool.connect();
   const response = await client?.query(
     `SELECT COUNT(username) FROM credentials WHERE username='${req.body.uname}' AND password='${req.body.pswd}'`
   );
@@ -40,11 +42,12 @@ app.post("/logincredentials", jsonParser, async (req, res) => {
 });
 
 app.post("/deleteOrder", jsonParser, async (req, res) => {
-  console.log(req.body.id);
+  const client = pool.connect();
   await client?.query(`DELETE FROM orders WHERE order_id='${req.body.id}'`);
   res.status(200);
 });
 app.get("/ingredients", async (req, res) => {
+  const client = pool.connect();
   let returnObject = {};
   const response = await client?.query(
     `SELECT * FROM ingredients ORDER BY amount;`
@@ -56,6 +59,7 @@ app.get("/ingredients", async (req, res) => {
 });
 
 app.post("/display", async (req, res) => {
+  const client = pool.connect();
   let ordersArray = [];
   let newObject = {};
   try {
