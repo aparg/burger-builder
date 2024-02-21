@@ -28,6 +28,7 @@ app.post("/orders", jsonParser, async (req, res) => {
       req.body.cheese
     },${req.body.meat},${req.body.bacon},${req.body.salad});`
   );
+  await client.release();
   res.status(200).end();
 });
 
@@ -36,7 +37,7 @@ app.post("/logincredentials", jsonParser, async (req, res) => {
   const response = await client?.query(
     `SELECT COUNT(username) FROM credentials WHERE username='${req.body.uname}' AND password='${req.body.pswd}'`
   );
-  console.log(response.rows);
+  await client.release();
   if (response?.rows[0]["count"] == 1) res.send("$#*LOGGEDIN*$#");
   else res.send(false);
 });
@@ -44,6 +45,7 @@ app.post("/logincredentials", jsonParser, async (req, res) => {
 app.post("/deleteOrder", jsonParser, async (req, res) => {
   const client = await pool.connect();
   await client?.query(`DELETE FROM orders WHERE order_id='${req.body.id}'`);
+  await client.release();
   res.status(200);
 });
 app.get("/ingredients", async (req, res) => {
@@ -52,6 +54,7 @@ app.get("/ingredients", async (req, res) => {
   const response = await client?.query(
     `SELECT * FROM ingredients ORDER BY amount;`
   );
+  await client.release();
   response?.rows?.forEach((el) => {
     returnObject[el.ingredient] = el.amount;
   });
@@ -64,6 +67,7 @@ app.post("/display", async (req, res) => {
   let newObject = {};
   try {
     const response = await client?.query(`SELECT * FROM orders;`);
+    await client.release();
     response?.rows?.forEach((el) => {
       newObject.order_id = el.order_id;
       newObject.cheese = el.cheese;
@@ -74,6 +78,7 @@ app.post("/display", async (req, res) => {
     });
     res.status(200).send(ordersArray);
   } catch (err) {
+    await client.release();
     console.log(err);
     res.status(400);
   }
